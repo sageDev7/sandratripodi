@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dra. Sandra Tripodi Wilson | Abogada Especializada en Sucesiones</title>
+<meta name="description" content="Abogada especializada en Sucesiones con +17 años de experiencia en CABA y Prov. Bs. As. Confianza y empatía en cada caso.">
+<link rel="icon" href="./favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --coral-light:#f7dbcf;
+  --coral:#f4a385;
+  --black:#000000;
+  --dark:#1a1a1a;
+  --gray:#4a4a4a;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;line-height:1.6;color:var(--gray)}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600}
+a{text-decoration:none !important}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--coral-light)}
+::-webkit-scrollbar-thumb{background:var(--coral)}
+
+/* HEADER - Ajustado z-index para superar al menú */
+header{background:transparent;position:fixed;top:0;width:100%;z-index:10000;transition:background .3s}
+header.scrolled{background:var(--coral-light)}
+nav{max-width:1400px;margin:0 auto;padding:22px 60px;display:flex;justify-content:center;align-items:center}
+.logo{height:55px;position:absolute;left:120px;opacity:0;transition:opacity .3s}
+header.scrolled .logo{opacity:1}
+.logo img{height:100%;width:auto}
+.nav-links{display:flex;list-style:none;gap:45px;align-items:center}
+.nav-links a{color:var(--black);font-weight:500;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
+.nav-links a:hover{color:var(--coral)}
+
+/* HAMBURGER - Ajuste de z-index y animación de cruz */
+.hamburger{
+  position:fixed;
+  right:30px;
+  top:30px;
+  z-index:10001;
+  cursor:pointer;
+  display:none;
+  flex-direction:column;
+  gap:5px;
+}
+.hamburger span{
+  width:30px;
+  height:3px;
+  background:var(--black);
+  display:block;
+  transition:all .3s ease;
+}
+.hamburger.open span:nth-child(1){
+  transform:rotate(45deg) translate(6px,6px);
+}
+.hamburger.open span:nth-child(2){
+  opacity:0;
+}
+.hamburger.open span:nth-child(3){
+  transform:rotate(-45deg) translate(5px,-5px);
+}
+
+/* MOBILE MENU - Ajustado a columna y z-index correcto */
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:280px;
+  height:100vh;
+  background:var(--black);
+  padding:100px 40px;
+  z-index:9998;
+  transition:right .3s ease;
+  box-shadow:-5px 0 15px rgba(0,0,0,.3);
+  display:flex;
+  flex-direction:column;
+}
+.mobile-menu.open{
+  right:0;
+}
+.mobile-menu a{
+  display:block !important;
+  color:#fff !important;
+  padding:15px 0 !important;
+  font-size:14px !important;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  transition:.3s;
+  width:100%;
+}
+.mobile-menu a:hover{
+  color:var(--coral) !important;
+}
+
+/* HERO */
+.hero{padding:100px 0 80px;background:var(--coral-light);min-height:110vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80') center/cover;filter:grayscale(100%);opacity:.12;z-index:0}
+.hero-container{max-width:900px;margin:0 auto;padding:0 2rem;text-align:center;position:relative;z-index:1}
+.hero-logo{margin:0 auto 42.5px;max-width:280px}
+.hero-logo img{width:100%;height:auto}
+.hero-content h1{font-size:clamp(1.5rem,3.75vw,3rem);color:var(--black);line-height:1.15;margin-bottom:20px;font-weight:400;letter-spacing:-0.5px}
+.hero-content h1 strong{font-weight:700;display:block;margin-top:5px;color:var(--coral)}
+.hero-content .lead{font-size:clamp(1rem,1.8vw,1.15rem);color:var(--gray);line-height:1.6;margin-bottom:35px;max-width:600px;margin-left:auto;margin-right:auto;font-weight:300}
+.hero-cta{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;padding-top:40px;border-top:1px solid rgba(0,0,0,.15);max-width:600px;margin-left:auto;margin-right:auto}
+.stat-item-hero{text-align:center}
+.stat-number-hero{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--coral);line-height:1;margin-bottom:6px}
+.stat-label-hero{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:2px;font-weight:600}
+.btn{padding:16px 40px;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s;display:inline-flex;align-items:center;gap:12px}
+.btn-primary{background:var(--coral);color:var(--white)}
+.btn-primary:hover{background:var(--coral-light);color:var(--black);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--coral);color:var(--coral)}
+.btn-outline:hover{background:var(--coral);color:var(--white)}
+.btn-black{background:var(--black);color:var(--white);border:2px solid var(--black)}
+.btn-black:hover{background:transparent;color:var(--black);border-color:var(--black)}
+
+/* ESPECIALIDAD */
+.especialidad{padding:120px 60px;background:var(--white)}
+.especialidad-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.especialidad-imagen{position:relative}
+.especialidad-imagen img{width:100%;height:600px;object-fit:cover;filter:grayscale(20%);box-shadow:0 20px 50px rgba(0,0,0,.15)}
+.especialidad-imagen::before{content:'';position:absolute;top:-20px;left:-20px;width:100%;height:100%;border:3px solid var(--coral);z-index:-1}
+.especialidad-content h2{font-size:clamp(2rem,4vw,3.5rem);color:var(--black);margin-bottom:25px;font-weight:600}
+.especialidad-content p{font-size:1.05rem;color:var(--gray);line-height:1.8;margin-bottom:20px}
+.especialidad-list{list-style:none;margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:35px}
+.especialidad-list li{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:500;color:var(--black)}
+.especialidad-list i{color:var(--coral);font-size:.9rem}
+
+/* POR QUÉ ELEGIRNOS */
+.por-que{padding:120px 60px;background:var(--coral-light)}
+.por-que-container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:70px}
+.section-header h2{font-size:clamp(2rem,4vw,3.5rem);color:var(--black);margin-bottom:20px;font-weight:600}
+.section-header .divider{width:80px;height:3px;background:var(--coral);margin:20px auto}
+.section-header p{font-size:1.08rem;color:var(--gray);max-width:700px;margin:0 auto}
+.razones-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:45px}
+.razon{text-align:center;background:var(--white);padding:50px 35px;transition:.3s}
+.razon:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.12)}
+.razon-icon{width:90px;height:90px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;font-size:35px;color:var(--white);transition:.3s}
+.razon:hover .razon-icon{transform:scale(1.1)}
+.razon h3{font-size:1.4rem;margin-bottom:15px;font-weight:600;color:var(--black)}
+.razon p{font-size:.95rem;color:var(--gray);line-height:1.7}
+
+/* PROCESO */
+.proceso{padding:120px 60px;background:var(--white)}
+.proceso-container{max-width:1200px;margin:0 auto}
+.proceso-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:35px;margin-top:50px}
+.step{text-align:center;position:relative;padding:40px 25px;background:var(--coral-light);transition:.3s}
+.step:hover{background:var(--coral);color:var(--white)}
+.step:hover h3,.step:hover p{color:var(--white)}
+.step-numero{width:70px;height:70px;background:var(--black);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto 20px}
+.step h3{font-size:1.25rem;color:var(--black);margin-bottom:12px;font-weight:600;transition:.3s}
+.step p{font-size:.9rem;color:var(--gray);line-height:1.65;transition:.3s}
+
+/* CTA */
+.cta-section{padding:100px 60px;background:var(--black);text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1920&q=80') center/cover;filter:grayscale(100%);opacity:.15;z-index:0}
+.cta-content{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.cta-content h2{font-size:clamp(2rem,4vw,3.2rem);color:var(--white);margin-bottom:22px;font-weight:600}
+.cta-content p{font-size:1.15rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:35px}
+
+/* TESTIMONIOS */
+.testimonios{padding:120px 60px;background:var(--coral-light)}
+.testimonios-container{max-width:1200px;margin:0 auto}
+.testimonios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px}
+.testimonio{background:var(--white);padding:45px 40px;position:relative;border-left:4px solid var(--coral);box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.testimonio-comillas{font-size:55px;color:var(--coral);opacity:.15;position:absolute;top:25px;left:25px;font-family:'Cormorant Garamond',serif}
+.testimonio-texto{font-size:1rem;color:var(--gray);line-height:1.75;margin-bottom:25px;position:relative;z-index:1;font-style:italic}
+.testimonio-autor{display:flex;align-items:center;gap:18px}
+.testimonio-avatar{width:55px;height:55px;background:var(--coral);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
+.testimonio-info strong{display:block;font-size:.98rem;color:var(--black);font-weight:600;margin-bottom:4px}
+.testimonio-info span{font-size:.85rem;color:var(--gray)}
+
+/* INSTAGRAM */
+.instagram{padding:120px 60px;background:var(--white)}
+.instagram-container{max-width:1200px;margin:0 auto}
+.instagram .section-header h2{color:var(--black)}
+.instagram .section-header p{color:var(--gray)}
+.instagram .divider{background:var(--coral)}
+.instagram-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.instagram-post{background:var(--coral-light);overflow:hidden;transition:.3s;border:1px solid rgba(0,0,0,.05)}
+.instagram-post:hover{transform:translateY(-5px)}
+.instagram-post iframe{width:100%;height:600px;border:none}
+
+/* FAQ */
+.faq{padding:120px 60px;background:var(--coral-light);position:relative;overflow:hidden}
+.faq::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1920&q=80') center/cover;filter:grayscale(100%);opacity:.15;z-index:0}
+.faq-container{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.faq .section-header h2{color:var(--black)}
+.faq .section-header p{color:var(--gray)}
+.faq .divider{background:var(--coral)}
+.faq-list{display:flex;flex-direction:column;gap:18px}
+.faq-item{background:var(--white);transition:.3s;position:relative;box-shadow:0 4px 15px rgba(0,0,0,.05)}
+.faq-item.active{border-left:5px solid var(--coral)}
+.faq-question{padding:28px 40px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:30px}
+.faq-question span{font-size:1.05rem;font-weight:600;color:var(--black);text-align:center;flex:1}
+.faq-question i{font-size:16px;color:var(--coral);transition:.3s;flex-shrink:0;position:absolute;right:40px}
+.faq-item.active .faq-question i{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s}
+.faq-answer p{padding:0 40px 28px;font-size:.98rem;color:var(--gray);line-height:1.75;text-align:center}
+.faq-item.active .faq-answer{max-height:300px}
+
+/* CONTACTO */
+.contacto{padding:120px 60px;background:var(--white)}
+.contacto-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contacto-content h2{font-size:clamp(2rem,4vw,3.5rem);color:var(--black);margin-bottom:22px;font-weight:600}
+.contacto-content>p{font-size:1.05rem;color:var(--gray);line-height:1.75;margin-bottom:45px}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:28px}
+.info-item{display:flex;align-items:flex-start;gap:18px}
+.info-icon{width:50px;height:50px;background:var(--coral);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.info-text h4{font-size:1.05rem;color:var(--black);margin-bottom:6px;font-weight:600}
+.info-text a,.info-text span{font-size:.95rem;color:var(--gray);transition:.3s}
+.info-text a:hover{color:var(--coral)}
+.contacto-form{background:var(--coral-light);padding:45px;box-shadow:0 10px 35px rgba(0,0,0,.08)}
+.form-group{margin-bottom:22px}
+.form-group label{display:block;font-size:12px;font-weight:600;color:var(--black);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;border:2px solid transparent;background:var(--white);font-size:14px;font-family:'Montserrat',sans-serif;color:var(--black);transition:.3s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--coral)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;padding:16px;background:var(--black);color:var(--white);border:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;cursor:pointer;transition:.3s}
+.form-submit:hover{background:var(--coral);transform:translateY(-2px)}
+
+/* MAPA - Restaurada URL /0 original */
+.mapa{width:100%;height:500px;background:var(--gray)}
+.mapa iframe{width:100%;height:100%;border:none;filter:grayscale(100%) contrast(1.1)}
+
+/* FOOTER */
+footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;border-top:3px solid var(--coral)}
+.footer-container{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:50px}
+.footer-brand .logo{margin-bottom:22px}
+.footer-brand .logo img{height:50px}
+.footer-brand p{font-size:.95rem;line-height:1.7;margin-bottom:22px;max-width:320px;color:var(--gray)}
+.footer-socials{display:flex;gap:12px}
+.footer-socials a{width:42px;height:42px;background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;color:var(--black);font-size:17px;transition:.3s}
+.footer-socials a:hover{background:var(--coral);border-color:var(--coral);color:var(--white)}
+.footer-col h4{font-size:.95rem;font-weight:600;color:var(--black);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:20px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:var(--gray);font-size:.88rem;transition:.3s}
+.footer-col a:hover{color:var(--coral)}
+.footer-bottom{max-width:1400px;margin:0 auto;padding-top:35px;border-top:1px solid rgba(0,0,0,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.footer-bottom p{font-size:.8rem;color:var(--gray)}
+.footer-bottom strong{color:var(--black)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:30px;right:30px;width:62px;height:62px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:999;transition:.3s;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 8px 25px rgba(37,211,102,.5)}50%{box-shadow:0 8px 35px rgba(37,211,102,.8)}}
+.wa-float:hover{transform:scale(1.08)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .especialidad-container{grid-template-columns:1fr;gap:50px}
+  .especialidad-imagen{max-width:450px;margin:0 auto}
+  .razones-grid{grid-template-columns:1fr 1fr;gap:35px}
+  .proceso-steps{grid-template-columns:repeat(2,1fr)}
+  .testimonios-grid{grid-template-columns:1fr}
+  .instagram-grid{grid-template-columns:1fr}
+  .contacto-container{grid-template-columns:1fr}
+  .footer-container{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:768px){
+  nav{padding:18px 30px;justify-content:center;position:relative}
+  .logo{position:static;margin:0 auto}
+  .nav-links{display:none !important}
+  .hamburger{display:flex}
+  .hero{padding:140px 30px 80px}
+  .hero-logo{max-width:280px;margin-bottom:50px}
+  .hero-content h1{font-size:2.2rem}
+  .hero-content .lead{font-size:1rem}
+  .hero-stats{grid-template-columns:1fr;gap:30px;margin-top:40px;padding-top:35px}
+  .especialidad,.por-que,.proceso,.cta-section,.testimonios,.instagram,.faq,.contacto{padding:80px 30px}
+  .section-header h2,.especialidad-content h2,.contacto-content h2,.cta-content h2{font-size:2.2rem}
+  .especialidad-container{text-align:center}
+  .especialidad-imagen{max-width:100%}
+  .especialidad-imagen img{height:500px}
+  .especialidad-list{grid-template-columns:1fr}
+  .especialidad-list li{justify-content:center}
+  .razones-grid{grid-template-columns:1fr}
+  .proceso-steps{grid-template-columns:1fr}
+  .instagram-post iframe{height:500px}
+  .faq-question span{text-align:left}
+  .faq-answer p{text-align:left}
+  .contacto-container{text-align:center}
+  .info-item{justify-content:center}
+  .mapa{height:350px}
+  .footer-container{grid-template-columns:1fr;text-align:center}
+  .footer-brand{display:flex;flex-direction:column;align-items:center}
+  .footer-brand p{max-width:100%}
+  .footer-socials{justify-content:center}
+  .footer-col{text-align:center}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><img src="./logo.png" alt="Dra. Sandra Tripodi Wilson"></div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#especialidad">Especialidad</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+
+<nav class="mobile-menu" id="mobile">
+  <a href="#inicio">Inicio</a>
+  <a href="#especialidad">Especialidad</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#instagram">Instagram</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="hero-container">
+    <div class="hero-logo">
+      <img src="./logo.png" alt="Dra. Sandra Tripodi Wilson">
+    </div>
+    <div class="hero-content">
+      <h1>Abogada Especializada<strong>en Sucesiones</strong></h1>
+      <p class="lead">Con más de 17 años de experiencia brindando confianza y empatía en cada caso. CABA y Provincia de Buenos Aires.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/541234567890?text=Consulta%20sobre%20sucesiones" class="btn btn-primary" target="_blank">Consultar por WhatsApp</a>
+        <a href="#contacto" class="btn btn-outline">Agendar Consulta</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item-hero">
+        <div class="stat-number-hero">+17</div>
+        <div class="stat-label-hero">Años Experiencia</div>
+      </div>
+      <div class="stat-item-hero">
+        <div class="stat-number-hero">CABA</div>
+        <div class="stat-label-hero">Prov. Bs. As.</div>
+      </div>
+      <div class="stat-item-hero">
+        <div class="stat-number-hero">100%</div>
+        <div class="stat-label-hero">Confianza</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="especialidad" id="especialidad">
+  <div class="especialidad-container">
+    <div class="especialidad-imagen">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Dra. Sandra Tripodi Wilson">
+    </div>
+    <div class="especialidad-content">
+      <h2>Especialista en Sucesiones</h2>
+      <p>Con más de 17 años de experiencia en derecho sucesorio, acompaño a familias en uno de los momentos más delicados: la tramitación de herencias y la división de bienes.</p>
+      <p>Mi enfoque se basa en la empatía, la claridad y el profesionalismo. Entiendo que cada familia tiene sus particularidades y trabajo para encontrar soluciones que respeten los vínculos familiares mientras protejo los derechos de cada heredero.</p>
+      <p>Cuento con amplia experiencia en CABA y Provincia de Buenos Aires, brindando asesoramiento integral en todas las etapas del proceso sucesorio.</p>
+      <ul class="especialidad-list">
+        <li><i class="fas fa-check-circle"></i>Declaratoria de Herederos</li>
+        <li><i class="fas fa-check-circle"></i>Testamentos y Legados</li>
+        <li><i class="fas fa-check-circle"></i>Partición de Bienes</li>
+        <li><i class="fas fa-check-circle"></i>Sucesiones Intestadas</li>
+        <li><i class="fas fa-check-circle"></i>Tasación de Inmuebles</li>
+        <li><i class="fas fa-check-circle"></i>Asesoramiento Integral</li>
+      </ul>
+      <a href="#contacto" class="btn btn-black">Solicitar Asesoramiento</a>
+    </div>
+  </div>
+</section>
+
+<section class="por-que">
+  <div class="por-que-container">
+    <div class="section-header">
+      <h2>¿Por Qué Confiar en Mi?</h2>
+      <div class="divider"></div>
+      <p>Valores que guían mi práctica profesional en derecho sucesorio.</p>
+    </div>
+    <div class="razones-grid">
+      <div class="razon">
+        <div class="razon-icon"><i class="fas fa-heart"></i></div>
+        <h3>Empatía</h3>
+        <p>Comprendo que las sucesiones ocurren en momentos difíciles. Acompaño con sensibilidad y respeto.</p>
+      </div>
+      <div class="razon">
+        <div class="razon-icon"><i class="fas fa-balance-scale"></i></div>
+        <h3>Experiencia</h3>
+        <p>Más de 17 años resolviendo casos sucesorios complejos en CABA y Provincia de Buenos Aires.</p>
+      </div>
+      <div class="razon">
+        <div class="razon-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Confianza</h3>
+        <p>Transparencia total en cada etapa del proceso, con comunicación clara y constante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="proceso-container">
+    <div class="section-header">
+      <h2>Proceso de Trabajo</h2>
+      <div class="divider"></div>
+      <p>Así acompaño a las familias en el trámite sucesorio.</p>
+    </div>
+    <div class="proceso-steps">
+      <div class="step">
+        <div class="step-numero">1</div>
+        <h3>Consulta Inicial</h3>
+        <p>Analizamos tu situación particular y te explico el proceso completo.</p>
+      </div>
+      <div class="step">
+        <div class="step-numero">2</div>
+        <h3>Documentación</h3>
+        <p>Reúno toda la documentación necesaria y gestiono los trámites correspondientes.</p>
+      </div>
+      <div class="step">
+        <div class="step-numero">3</div>
+        <h3>Tramitación</h3>
+        <p>Inicio y conduzco el proceso judicial o extrajudicial según corresponda.</p>
+      </div>
+      <div class="step">
+        <div class="step-numero">4</div>
+        <h3>Cierre</h3>
+        <p>Acompaño hasta la partición final y transferencia de bienes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>¿Necesitás Asesoramiento en Sucesiones?</h2>
+    <p>Contactame hoy y recibí orientación profesional con más de 17 años de experiencia.</p>
+    <a href="#contacto" class="btn btn-primary">Solicitar Consulta</a>
+  </div>
+</section>
+
+<section class="testimonios">
+  <div class="testimonios-container">
+    <div class="section-header">
+      <h2>Testimonios</h2>
+      <div class="divider"></div>
+      <p>La confianza de mis clientes es mi mayor reconocimiento.</p>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <div class="testimonio-comillas">"</div>
+        <p class="testimonio-texto">La Dra. Tripodi nos acompañó en un momento muy difícil tras el fallecimiento de nuestro padre. Su empatía y profesionalismo fueron fundamentales para resolver todo con tranquilidad.</p>
+        <div class="testimonio-autor">
+          <div class="testimonio-avatar">MR</div>
+          <div class="testimonio-info">
+            <strong>María Rodríguez</strong>
+            <span>Cliente - Sucesión Testamentaria</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="testimonio-comillas">"</div>
+        <p class="testimonio-texto">Excelente profesional. Me explicó cada paso del proceso con claridad y estuvo siempre disponible para responder mis dudas. Muy recomendable.</p>
+        <div class="testimonio-autor">
+          <div class="testimonio-avatar">JL</div>
+          <div class="testimonio-info">
+            <strong>Jorge López</strong>
+            <span>Cliente - Declaratoria de Herederos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="instagram" id="instagram">
+  <div class="instagram-container">
+    <div class="section-header">
+      <h2>Seguime en Instagram</h2>
+      <div class="divider"></div>
+      <p>Contenido legal sobre sucesiones en <a href="https://www.instagram.com/dra.sandra.t.wilson/" target="_blank" style="color:var(--coral);text-decoration:underline">@dra.sandra.t.wilson</a></p>
+    </div>
+    <div class="instagram-grid">
+      <div class="instagram-post">
+        <iframe src="https://www.instagram.com/reel/DU_n2fuga49/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <div class="instagram-post">
+        <iframe src="https://www.instagram.com/reel/DU6eRahDDNl/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <div class="instagram-post">
+        <iframe src="https://www.instagram.com/reel/DU1UzU4jLqz/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-container">
+    <div class="section-header">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="divider"></div>
+      <p>Respuestas sobre el proceso sucesorio.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question"><span>¿Cuánto tiempo demora una sucesión?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>El tiempo varía según la complejidad del caso. Una sucesión simple puede resolverse en 6-12 meses, mientras que casos más complejos pueden demorar más. Te mantengo informado en cada etapa.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>¿Qué documentación necesito para iniciar?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Necesitarás partida de defunción, DNI de herederos, títulos de propiedad si los hay, y cualquier testamento existente. Te asesoro sobre toda la documentación específica para tu caso.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>¿Cuáles son los honorarios?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Los honorarios se establecen según la complejidad del caso y el valor de los bienes. En la consulta inicial acordamos los costos de forma transparente.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>¿Puedo hacer una sucesión sin abogado?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Por ley, las sucesiones requieren patrocinio letrado. Como abogada especializada, me encargo de todos los trámites legales y judiciales necesarios.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>¿Atendés en CABA y Provincia?</span><i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Sí, trabajo en Ciudad Autónoma de Buenos Aires y Provincia de Buenos Aires. Podemos coordinar reuniones presenciales o virtuales según tu preferencia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="contacto-container">
+    <div class="contacto-content">
+      <h2>Contacto</h2>
+      <p>Comunicate conmigo para agendar una consulta sobre tu caso sucesorio.</p>
+      <ul class="info-list">
+        <li class="info-item">
+          <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="info-text">
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/541234567890" target="_blank">+54 11 1234-5678</a>
+          </div>
+        </li>
+        <li class="info-item">
+          <div class="info-icon"><i class="fab fa-instagram"></i></div>
+          <div class="info-text">
+            <h4>Instagram</h4>
+            <a href="https://www.instagram.com/dra.sandra.t.wilson/" target="_blank">@dra.sandra.t.wilson</a>
+          </div>
+        </li>
+        <li class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info-text">
+            <h4>Zonas de Atención</h4>
+            <span>CABA y Provincia de Buenos Aires</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="contacto-form">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="nombre">Nombre Completo</label>
+          <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" placeholder="Tu teléfono" required>
+        </div>
+        <div class="form-group">
+          <label for="consulta">Tipo de Consulta</label>
+          <select id="consulta" required>
+            <option value="">Seleccioná una opción</option>
+            <option value="declaratoria">Declaratoria de Herederos</option>
+            <option value="testamento">Testamento</option>
+            <option value="particion">Partición de Bienes</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" placeholder="Contame sobre tu caso..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar Consulta</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="mapa">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210147.47497625056!2d-58.5733857!3d-34.6131516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e10!2sBuenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890" allowfullscreen loading="lazy"></iframe>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="logo"><img src="./logo.png" alt="Dra. Sandra Tripodi Wilson"></div>
+      <p>Abogada especializada en Sucesiones con más de 17 años de experiencia. Confianza y empatía en cada caso.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/dra.sandra.t.wilson/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#especialidad">Especialidad</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#especialidad">Declaratoria de Herederos</a></li>
+        <li><a href="#especialidad">Testamentos</a></li>
+        <li><a href="#especialidad">Partición de Bienes</a></li>
+        <li><a href="#especialidad">Sucesiones</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#contacto">Consultas</a></li>
+        <li><a href="#faq">Preguntas Frecuentes</a></li>
+        <li><a href="https://wa.me/541234567890" target="_blank">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Dra. Sandra Tripodi Wilson — Abogada Especializada en Sucesiones. Todos los derechos reservados.</p>
+    <p>Desarrollado por <strong>@sageeDev</strong></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/541234567890?text=Consulta%20sobre%20sucesiones" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll',function(){
+  var header=document.querySelector('header');
+  if(window.scrollY>50){
+    header.classList.add('scrolled');
+  }else{
+    header.classList.remove('scrolled');
+  }
+});
+
+// Hamburger menu
+document.getElementById('hamburger').onclick=function(){
+  this.classList.toggle('open');
+  document.getElementById('mobile').classList.toggle('open');
+};
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.onclick=function(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobile').classList.remove('open');
+});
+
+// FAQs
+document.querySelectorAll('.faq-question').forEach(q=>q.onclick=function(){
+  q.parentElement.classList.toggle('active');
+});
+
+// Form submit
+document.getElementById('contactForm').onsubmit=function(e){
+  e.preventDefault();
+  var n=document.getElementById('nombre').value;
+  var t=document.getElementById('telefono').value;
+  var c=document.getElementById('consulta').value;
+  var m=document.getElementById('mensaje').value;
+  var txt='Hola Dra., soy *'+n+'* y necesito asesoramiento en sucesiones.';
+  if(c){txt+='\\n\\n*Tipo de consulta:* '+c;}
+  if(m){txt+='\\n\\n*Detalle:*\\n'+m;}
+  txt+='\\n\\n*Teléfono:* '+t;
+  window.open('https://wa.me/541234567890?text='+encodeURIComponent(txt),'_blank');
+};
+</script>
+</body>
+</html>
