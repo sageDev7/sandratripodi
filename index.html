@@ -171,9 +171,9 @@ header.scrolled .logo{opacity:1}
 .testimonios{padding:120px 60px;background:var(--coral-light)}
 .testimonios-container{max-width:1200px;margin:0 auto}
 .testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
-.testimonio{background:var(--white);padding:45px 40px;position:relative;border-left:4px solid var(--coral);box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.testimonio{background:var(--white);padding:45px 40px;position:relative;border-left:4px solid var(--coral);box-shadow:0 8px 25px rgba(0,0,0,.08);display:flex;flex-direction:column}
 .testimonio-comillas{font-size:55px;color:var(--coral);opacity:.15;position:absolute;top:25px;left:25px;font-family:'Cormorant Garamond',serif}
-.testimonio-texto{font-size:1rem;color:var(--gray);line-height:1.75;margin-bottom:25px;position:relative;z-index:1;font-style:italic}
+.testimonio-texto{font-size:1rem;color:var(--gray);line-height:1.75;margin-bottom:25px;position:relative;z-index:1;font-style:italic;flex:1}
 .testimonio-autor{display:flex;align-items:center;gap:18px}
 .testimonio-avatar{width:55px;height:55px;background:var(--coral);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700}
 .testimonio-info strong{display:block;font-size:.98rem;color:var(--black);font-weight:600;margin-bottom:4px}
@@ -285,7 +285,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
   .especialidad-imagen{max-width:100%}
   .especialidad-imagen img{height:500px}
   .especialidad-list{grid-template-columns:1fr}
-  .especialidad-list li{justify-content:center}
+  .especialidad-list li{justify-content:flex-start}
   .razones-grid{grid-template-columns:1fr}
   .proceso-steps{grid-template-columns:1fr}
   .testimonios {
@@ -304,8 +304,9 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
   .instagram-post iframe{height:500px}
   .faq-question span{text-align:left}
   .faq-answer p{text-align:left}
-  .contacto-container{text-align:center}
-  .info-item{justify-content:center}
+  .contacto-container{text-align:left}
+  .contacto-content h2,.contacto-content>p{text-align:center}
+  .info-item{justify-content:flex-start}
   .mapa{height:350px}
   .footer-container{grid-template-columns:1fr;text-align:center}
   .footer-brand{display:flex;flex-direction:column;align-items:center}
@@ -381,11 +382,11 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
       <p>Mi enfoque se basa en la empatía, la claridad y el profesionalismo. Entiendo que cada familia tiene sus particularidades y trabajo para encontrar soluciones que respeten los vínculos familiares mientras protejo los derechos de cada heredero.</p>
       <p>Cuento con amplia experiencia en CABA y Provincia de Buenos Aires, brindando asesoramiento integral en todas las etapas del proceso sucesorio.</p>
       <ul class="especialidad-list">
-        <li><i class="fas fa-check-circle"></i>Declaratoria de Herederos</li>
-        <li><i class="fas fa-check-circle"></i>Testamentos y Legados</li>
+        <li><i class="fas fa-check-circle"></i>Sucesiones ab-intestato</li>
+        <li><i class="fas fa-check-circle"></i>Sucesiones testamentarias</li>
+        <li><i class="fas fa-check-circle"></i>Testamentos ológrafos</li>
         <li><i class="fas fa-check-circle"></i>Partición de Bienes</li>
-        <li><i class="fas fa-check-circle"></i>Sucesiones Intestadas</li>
-        <li><i class="fas fa-check-circle"></i>Tasación de Inmuebles</li>
+        <li><i class="fas fa-check-circle"></i>Tracto abreviado</li>
         <li><i class="fas fa-check-circle"></i>Asesoramiento Integral</li>
       </ul>
       <a href="#contacto" class="btn btn-black">Solicitar Asesoramiento</a>
@@ -622,7 +623,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
 </section>
 
 <section class="mapa">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.1884650457414!2d-58.515016024293!3d-34.62467735860532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc82d8ede2cc5%3A0xe63dacb1dcb315bc!2sAv.%20%C3%81lvarez%20Jonte%205365%2C%20C1407GPH%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1771957093677!5m2!1ses!2sar" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210147.47497625056!2d-58.5733857!3d-34.6131516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e10!2sBuenos%20Aires!5e0!3m2!1ses!2sar!4v1234567890" allowfullscreen loading="lazy"></iframe>
 </section>
 
 <footer>
@@ -670,7 +671,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
 
 <a href="https://wa.me/5491133644949?text=Consulta%20sobre%20sucesiones" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 window.addEventListener('scroll',function(){
   var header=document.querySelector('header');
   if(header && window.scrollY>50){
