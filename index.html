@@ -22,6 +22,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;line-height:1.6;color:var(--gray)}
+
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600}
 a{text-decoration:none !important}
 ::-webkit-scrollbar{width:8px}
@@ -169,7 +170,7 @@ header.scrolled .logo{opacity:1}
 /* TESTIMONIOS */
 .testimonios{padding:120px 60px;background:var(--coral-light)}
 .testimonios-container{max-width:1200px;margin:0 auto}
-.testimonios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:35px}
+.testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
 .testimonio{background:var(--white);padding:45px 40px;position:relative;border-left:4px solid var(--coral);box-shadow:0 8px 25px rgba(0,0,0,.08)}
 .testimonio-comillas{font-size:55px;color:var(--coral);opacity:.15;position:absolute;top:25px;left:25px;font-family:'Cormorant Garamond',serif}
 .testimonio-texto{font-size:1rem;color:var(--gray);line-height:1.75;margin-bottom:25px;position:relative;z-index:1;font-style:italic}
@@ -260,7 +261,10 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
   .especialidad-imagen{max-width:450px;margin:0 auto}
   .razones-grid{grid-template-columns:1fr 1fr;gap:35px}
   .proceso-steps{grid-template-columns:repeat(2,1fr)}
-  .testimonios-grid{grid-template-columns:1fr}
+  .testimonios-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
   .instagram-grid{grid-template-columns:1fr}
   .contacto-container{grid-template-columns:1fr}
   .footer-container{grid-template-columns:1fr 1fr;gap:40px}
@@ -284,6 +288,19 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
   .especialidad-list li{justify-content:center}
   .razones-grid{grid-template-columns:1fr}
   .proceso-steps{grid-template-columns:1fr}
+  .testimonios {
+    padding: 60px 20px;
+  }
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .testimonio {
+    padding: 30px 20px;
+  }
+  .testimonio-texto {
+    font-size: 0.95rem;
+  }
   .instagram-post iframe{height:500px}
   .faq-question span{text-align:left}
   .faq-answer p{text-align:left}
@@ -356,7 +373,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
 <section class="especialidad" id="especialidad">
   <div class="especialidad-container">
     <div class="especialidad-imagen">
-      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Dra. Sandra Tripodi Wilson">
+      <img src="./sandra.jpeg" alt="Dra. Sandra Tripodi Wilson">
     </div>
     <div class="especialidad-content">
       <h2>Especialista en Sucesiones</h2>
@@ -451,28 +468,43 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
       <p>La confianza de mis clientes es mi mayor reconocimiento.</p>
     </div>
     <div class="testimonios-grid">
+      
       <div class="testimonio">
         <div class="testimonio-comillas">"</div>
-        <p class="testimonio-texto">La Dra. Tripodi nos acompañó en un momento muy difícil tras el fallecimiento de nuestro padre. Su empatía y profesionalismo fueron fundamentales para resolver todo con tranquilidad.</p>
+        <p class="testimonio-texto">¡Sos y serás la mejor abogada! Tenía años trabado ese divorcio, otros abogados antes desistieron y vos me lo lograste, incluso trabajando en plena pandemia.</p>
         <div class="testimonio-autor">
-          <div class="testimonio-avatar">MR</div>
+          <div class="testimonio-avatar">AF</div>
           <div class="testimonio-info">
-            <strong>María Rodríguez</strong>
-            <span>Cliente - Sucesión Testamentaria</span>
+            <strong>Andrea Fernandez</strong>
+            <span>Cliente - Derecho de Familia</span>
           </div>
         </div>
       </div>
+
       <div class="testimonio">
         <div class="testimonio-comillas">"</div>
-        <p class="testimonio-texto">Excelente profesional. Me explicó cada paso del proceso con claridad y estuvo siempre disponible para responder mis dudas. Muy recomendable.</p>
+        <p class="testimonio-texto">Orgullosa de mi abogada patrocinante. Absolutamente recomendable... reúne todas las cualidades: honestidad, profesionalismo, humildad, excelencia y pasión por su trabajo. ¡Gracias Doctora!</p>
         <div class="testimonio-autor">
-          <div class="testimonio-avatar">JL</div>
+          <div class="testimonio-avatar">CD</div>
           <div class="testimonio-info">
-            <strong>Jorge López</strong>
-            <span>Cliente - Declaratoria de Herederos</span>
+            <strong>Claudia Dominguez</strong>
+            <span>Cliente - Asesoramiento Integral</span>
           </div>
         </div>
       </div>
+
+      <div class="testimonio">
+        <div class="testimonio-comillas">"</div>
+        <p class="testimonio-texto">Sos de una tremenda humanidad, generosa, empática y buena gente; que sumado a tus conocimientos académicos hacen de vos una excelente profesional. Mi primera abogada y aún seguimos juntas.</p>
+        <div class="testimonio-autor">
+          <div class="testimonio-avatar">CN</div>
+          <div class="testimonio-info">
+            <strong>Cristina Neder</strong>
+            <span>Cliente - Sucesiones y Familia</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -547,7 +579,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
           <div class="info-icon"><i class="far fa-envelope"></i></div>
           <div class="info-text">
             <h4>Email</h4>
-            <a href="mailto:dra.sandra.wilson@gmail.com">dra.sandra.wilson@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#791d0b18570a18171d0b18570e10150a1617391e14181015571a1614"><span class="__cf_email__" data-cfemail="a0c4d2c18ed3c1cec4d2c18ed7c9ccd3cfcee0c7cdc1c9cc8ec3cfcd">[email&#160;protected]</span></a>
           </div>
         </li>
         <li class="info-item">
@@ -638,7 +670,7 @@ footer{background:var(--coral-light);color:var(--gray);padding:70px 60px 35px;bo
 
 <a href="https://wa.me/5491133644949?text=Consulta%20sobre%20sucesiones" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',function(){
   var header=document.querySelector('header');
   if(header && window.scrollY>50){
@@ -668,9 +700,9 @@ document.getElementById('contactForm').onsubmit=function(e){
   var c=document.getElementById('consulta').value;
   var m=document.getElementById('mensaje').value;
   var txt='Hola Dra., soy *'+n+'* y necesito asesoramiento en sucesiones.';
-  if(c){txt+='\\n\\n*Tipo de consulta:* '+c;}
-  if(m){txt+='\\n\\n*Detalle:*\\n'+m;}
-  txt+='\\n\\n*Teléfono:* '+t;
+  if(c){txt+='\n\n*Tipo de consulta:* '+c;}
+  if(m){txt+='\n\n*Detalle:*\n'+m;}
+  txt+='\n\n*Teléfono:* '+t;
   window.open('https://wa.me/5491133644949?text='+encodeURIComponent(txt),'_blank');
 };
 </script>
